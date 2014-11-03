@@ -6,27 +6,8 @@
   <name>Integration Architecture Example</name>
   <packaging>war</packaging>
 
-  <profiles>
-    <profile>
-      <id>dev</id>
-      <build>
-        <filters>
-          <filter>src/main/resources/datasource_dev.properties</filter>
-        </filters>
-      </build>
-    </profile>
-    <profile>
-      <id>online</id>
-      <build>
-        <filters>
-          <filter>src/main/resources/datasource_online.properties</filter>
-        </filters>
-      </build>
-    </profile>
-  </profiles>
-
   <build>
-    <finalName>ROOT</finalName>
+    <finalName>integration-architecture-example</finalName>
     <plugins>
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>

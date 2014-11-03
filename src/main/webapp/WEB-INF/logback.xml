@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>
+        %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+      </Pattern>
+    </layout>
+  </appender>
+
+  <appender name="FILEOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>/home/logs/integration-architecture/stdout.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>/home/logs/integration-architecture/stdout.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <maxHistory>15</maxHistory>
+    </rollingPolicy>
+    <layout class="ch.qos.logback.classic.PatternLayout">
+      <Pattern>
+        %d{HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+      </Pattern>
+    </layout>
+  </appender>
+
+  <logger name="com.simpleworks" level="TRACE" />
+  <logger name="org.springframework.jdbc.core.JdbcTemplate" level="INFO" />
+  <logger name="org.apache.camel" level="TRACE" />
+
+  <root level="INFO">
+    <appender-ref ref="FILEOUT" />
+  </root>
+</configuration>
