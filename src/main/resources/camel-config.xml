@@ -4,10 +4,7 @@
        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
        http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd">
 
-
-  <!-- Here we define Camel, notice the namespace it uses -->
   <camelContext xmlns="http://camel.apache.org/schema/spring">
-    <!-- Camel route to feed the ActiveMQ inbox queue once per second -->
     <route id="timerToInRoute">
       <from uri="timer:foo?period=1s" />
       <transform>
@@ -16,7 +13,6 @@
       <to uri="activemq:queue:inbox" />
     </route>
 
-    <!-- Camel route to move messages from the ActiveMQ inbox to its outbox queue -->
     <route id="inToOutRoute">
       <from uri="activemq:queue:inbox" />
       <log message="Routing message from inbox to outbox queue with data ${body}" />
@@ -25,10 +21,7 @@
 
   </camelContext>
 
-  <!-- create a Camel ActiveMQ component to use, using the Spring bean style -->
-  <!-- we use the vm protocol to communicate intra-jvm which is much faster than tcp -->
   <bean id="activemq" class="org.apache.activemq.camel.component.ActiveMQComponent">
-    <!-- vm://myBroker is the vm protocol, and myBroker is the broker name -->
     <property name="brokerURL" value="vm://myBroker?create=false&amp;waitForStart=5000" />
   </bean>
 
