@@ -10,7 +10,8 @@ public class IntegrationRouteBuilder extends RouteBuilder {
 
   @Override
   public void configure() throws Exception {
-    from("direct:start-auth").to("restlet://https://sample-shop-8.myshopify.com/admin/orders.json");
+    from("direct:start-auth")
+        .to("jetty://http://clarastream-services-brian.herokuapp.com/?authMethod=Basic&authUsername=trendnation&authPassword=demo123");
   }
 
 }
