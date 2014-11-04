@@ -21,11 +21,11 @@ public class IntegrationRouteBuilderTest {
     context.start();
 
     Map<String, Object> headers = new HashMap<String, Object>();
-    headers.put("Authorization", "Basic 1234567890");
+    headers.put("Authorization", "Basic dHJlbmRuYXRpb246ZGVtbzEyMw==");
 
     ProducerTemplate template = context.createProducerTemplate();
-    String response = (String) template.requestBodyAndHeaders("direct:start-auth", "", headers);
+    // pass in null body for get request, and specify return type
+    String response = template.requestBodyAndHeaders("direct:start-auth", null, headers, String.class);
     System.out.println(response);
   }
-
 }

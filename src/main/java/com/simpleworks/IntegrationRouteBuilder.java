@@ -11,7 +11,7 @@ public class IntegrationRouteBuilder extends RouteBuilder {
   @Override
   public void configure() throws Exception {
     from("direct:start-auth")
-        .to("jetty://http://clarastream-services-brian.herokuapp.com/?authMethod=Basic&authUsername=trendnation&authPassword=demo123");
+        .to("jetty://http://clarastream-services-brian.herokuapp.com/product?masterUserName=trendnation");
   }
 
 }
