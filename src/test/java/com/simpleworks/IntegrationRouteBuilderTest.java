@@ -6,6 +6,8 @@ import java.util.Map;
 import org.apache.camel.CamelContext;
 import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.junit.Test;
 
 /**
@@ -13,6 +15,7 @@ import org.junit.Test;
  * @since Nov 4, 2014
  */
 public class IntegrationRouteBuilderTest {
+  private static final Log LOG = LogFactory.getLog(IntegrationRouteBuilderTest.class);
 
   @Test
   public void testIntegrate() throws Exception {
@@ -26,6 +29,7 @@ public class IntegrationRouteBuilderTest {
     ProducerTemplate template = context.createProducerTemplate();
     // pass in null body for get request, and specify return type
     String response = template.requestBodyAndHeaders("direct:start-auth", null, headers, String.class);
-    System.out.println(response);
+    LOG.info("Get response: " + response);
   }
+
 }
