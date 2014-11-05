@@ -4,6 +4,8 @@
 *.jar
 *.war
 *.ear
+/.classpath
 /.project
 /.settings/
 /target/
+/activemq-data/
