@@ -14,17 +14,16 @@ import org.junit.Test;
  * @author mixueqiang
  * @since Nov 4, 2014
  */
-public class IntegrationRouteBuilderTest {
-  private static final Log LOG = LogFactory.getLog(IntegrationRouteBuilderTest.class);
+public class IntegrationRouteShopifyBuilderTest {
+  private static final Log LOG = LogFactory.getLog(IntegrationRouteShopifyBuilderTest.class);
 
   @Test
   public void testIntegrate() throws Exception {
     CamelContext context = new DefaultCamelContext();
-    context.addRoutes(new IntegrationRouteBuilder());
+    context.addRoutes(new IntegrationRouteToShopifyBuilder());
     context.start();
 
     Map<String, Object> headers = new HashMap<String, Object>();
-    headers.put("Authorization", "Basic dHJlbmRuYXRpb246ZGVtbzEyMw==");
 
     ProducerTemplate template = context.createProducerTemplate();
     // pass in null body for get request, and specify return type
