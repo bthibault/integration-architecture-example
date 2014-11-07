@@ -152,9 +152,18 @@
     </dependency>
 
     <dependency>
+      <groupId>aspectj</groupId>
+      <artifactId>aspectjweaver</artifactId>
+      <version>1.5.4</version>
+    </dependency>
+    <dependency>
       <groupId>commons-collections</groupId>
       <artifactId>commons-collections</artifactId>
       <version>3.2.1</version>
+    </dependency><dependency>
+      <groupId>commons-dbcp</groupId>
+      <artifactId>commons-dbcp</artifactId>
+      <version>1.4</version>
     </dependency>
     <dependency>
       <groupId>org.apache.commons</groupId>
@@ -276,6 +285,16 @@
       <artifactId>spring-test</artifactId>
       <version>3.2.11.RELEASE</version>
       <scope>test</scope>
+    </dependency>
+    <dependency>
+    	<groupId>javax.json</groupId>
+    	<artifactId>javax.json-api</artifactId>
+    	<version>1.0</version>
+    </dependency>
+    <dependency>
+    	<groupId>org.glassfish</groupId>
+    	<artifactId>javax.json</artifactId>
+    	<version>1.0.2</version>
     </dependency>
   </dependencies>
 

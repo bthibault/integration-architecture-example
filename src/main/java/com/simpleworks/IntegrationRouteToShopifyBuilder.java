@@ -13,19 +13,19 @@ import org.apache.camel.util.jsse.SSLContextParameters;
 public class IntegrationRouteToShopifyBuilder extends RouteBuilder {
 
   public IntegrationRouteToShopifyBuilder() {
-    configureSslForJetty();
+    // configureSslForJetty();
   }
 
   @Override
   public void configure() throws Exception {
     // 5665bffbe9fb6fadada3c108735a4cd5:ab37048bae217d3381e00785b5996da5@
     from("direct:start-auth")
-        .to("jetty://https://sample-shop-8.myshopify.com/admin/orders.json?authMethod=Basic&authUsername=5665bffbe9fb6fadada3c108735a4cd5&authPassword=ab37048bae217d3381e00785b5996da5");
+        .to("jetty://https://sample-shop-8.myshopify.com/admin/products.json");
   }
 
   private void configureSslForJetty() {
     KeyStoreParameters ksp = new KeyStoreParameters();
-    ksp.setResource("/Users/mixueqiang/Documents/tmp/TrustStore");
+    ksp.setResource("/Users/nestor/Desktop/integration-example/TrustStore");
     ksp.setPassword("1070379103");
 
     KeyManagersParameters kmp = new KeyManagersParameters();

@@ -8,6 +8,7 @@ import org.apache.camel.ProducerTemplate;
 import org.apache.camel.impl.DefaultCamelContext;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.commons.net.util.Base64;
 import org.junit.Test;
 
 /**
@@ -24,11 +25,13 @@ public class IntegrationRouteBuilderTest {
     context.start();
 
     Map<String, Object> headers = new HashMap<String, Object>();
-    headers.put("Authorization", "Basic dHJlbmRuYXRpb246ZGVtbzEyMw==");
+    String authToken = Base64.encodeBase64String("trendnation:demo123".getBytes());
+    
+    headers.put("Authorization", "Basic " + authToken);
 
     ProducerTemplate template = context.createProducerTemplate();
     // pass in null body for get request, and specify return type
-    String response = template.requestBodyAndHeaders("direct:start-auth", "", headers, String.class);
+    String response = template.requestBodyAndHeaders("direct:start-auth", null, headers, String.class);
     LOG.info("Get response: " + response);
   }
 
