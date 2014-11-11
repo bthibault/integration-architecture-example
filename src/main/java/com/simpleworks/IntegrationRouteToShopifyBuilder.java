@@ -25,7 +25,7 @@ public class IntegrationRouteToShopifyBuilder extends RouteBuilder {
   private void configureSslForJetty() {
     KeyStoreParameters ksp = new KeyStoreParameters();
     ksp.setResource("/home/data/security/TrustStore");
-    ksp.setPassword("1070379104");
+    ksp.setPassword("1070379103");
 
     TrustManagersParameters tmp = new TrustManagersParameters();
     tmp.setKeyStore(ksp);
