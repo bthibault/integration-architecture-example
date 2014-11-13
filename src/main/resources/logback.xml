@@ -11,7 +11,7 @@
   <appender name="FILEOUT" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>/home/logs/integration-architecture/stdout.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-      <fileNamePattern>/home/logs/integration-architecture/stdout.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>stdout.log.%d{yyyy-MM-dd}.log</fileNamePattern>
       <maxHistory>15</maxHistory>
     </rollingPolicy>
     <layout class="ch.qos.logback.classic.PatternLayout">
@@ -22,8 +22,8 @@
   </appender>
 
   <logger name="com.simpleworks" level="TRACE" />
-  <logger name="org.springframework" level="INFO" />
-  <logger name="org.apache.camel" level="INFO" />
+  <logger name="org.springframework" level="TRACE" />
+  <logger name="org.apache.camel" level="TRACE" />
 
   <root level="INFO">
     <appender-ref ref="FILEOUT" />

@@ -1,4 +1,7 @@
 *.class
+*.iml
+.idea
+stdout.log
 
 # Package Files #
 *.jar
