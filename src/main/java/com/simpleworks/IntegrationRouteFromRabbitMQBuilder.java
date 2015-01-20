@@ -7,7 +7,7 @@ import org.apache.camel.component.stream.*;
 
 public class IntegrationRouteFromRabbitMQBuilder extends RouteBuilder {
 
-    private static String ENDPOINT = "rabbitmq://localhost/test";
+    private static String ENDPOINT = "rabbitmq://clarastream-dev/default?username=guest&password=guest&autoDelete=false&queue=SyncRequestDispatcher";
 
     @Override
     public void configure() throws Exception {

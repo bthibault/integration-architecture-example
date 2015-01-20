@@ -21,7 +21,7 @@ public class IntegrationRouteBuilderTest {
   @Test
   public void testIntegrate() throws Exception {
     CamelContext context = new DefaultCamelContext();
-    context.addRoutes(new IntegrationRouteBuilder());
+    context.addRoutes(new IntegrationServicesRoute());
     context.start();
 
     Map<String, Object> headers = new HashMap<String, Object>();
@@ -32,7 +32,7 @@ public class IntegrationRouteBuilderTest {
     ProducerTemplate template = context.createProducerTemplate();
     // pass in null body for get request, and specify return type
     String response = template.requestBodyAndHeaders("direct:start-auth", null, headers, String.class);
-    LOG.info("Get response: " + response);
+    System.out.println("Get response: " + response);
   }
 
 }

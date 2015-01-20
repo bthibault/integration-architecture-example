@@ -43,7 +43,6 @@ public class IntegrationRouteShopifyBuilderTest {
                 .add("product_type", "Example").add("tags", "")).build();
     ProducerTemplate template = context.createProducerTemplate();
     System.out.println("JSON request: " + product.toString());
-
     // pass in null body for get request, and specify return type
     String response = template.requestBodyAndHeaders("direct:start-auth", product.toString(), headers, String.class);
     System.out.println("Get response: " + response);
